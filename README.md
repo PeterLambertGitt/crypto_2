@@ -2,15 +2,15 @@
 ## Motivation for project:
 #### Cryptocurrency markets are notoriously volatile, yet lucrative. Since the vast majority of cryptocurrencies are not based on any tangible assets, their value is strongly correlated to the way people feel about them. Therefore, finding a way to quantify this level of global feeling is an inherently powerful thing.
 ## Relationship between Bitcoin price and Twitter sentiment
-![Alt text](streamlit_pics/relationship.png)
+![Alt text](crypto1.png)
 ##### MA sentiment is the moving average of sentiment over 7 days. This was used to reduce the effect of noise on the results so a pattern could be more clearly seen.
 ## Overview:
 #### Cryptobot used a preexisting natural language processing (NLP) model to get a sentiment rating of Tweets, on a daily basis, over a 2.5 year period. This data showed that tweet sentiment does indeed have a bearing on the price of Bitcoin. A time series was generated, using our Tweet sentiment data and other key data. We were able to generate 2 day predications with a mean average percentage error (MAPE) of 4.5%. Volume of Bitcoin tweets was also examined and used as a measure of how significant the sentiment rating for a given day was. Data engineering was used to provide realtime updates on Streamlit.
 ### Project Architecture:
-![Alt text](streamlit_pics/project_architecture.png)
+![Alt text](crypto2.png)
 ## Time series analysis:
 #### The time series was generated using the previous price of Bitcoin, as well as other exogenous variables. The previous price of Bitcoin was not enough to provide a useful time series model, due to its chaotic and volatile nature. However, when combined with our data about Bitcoin sentiment, the time series model improved significantly. When provided with data about Bitcoin trading volume, the time series improved even more, resulting in a MAPE of 4.5%. The backtested graph which shows the true values VS the predicted values can be seen below.
-![Alt text](streamlit_pics/backtest.PNG)
+![Alt text](crypto3.PNG)
 ## 
 ## Trading strategy:
 #### Combing the sentiment data we produced with a strategy proposed by Imperial College London (linked in the paper below *), our strategy made a profit, despite the fact that Bitcoin made a significant loss during the period we investigated. We considered this a huge success for our team.
