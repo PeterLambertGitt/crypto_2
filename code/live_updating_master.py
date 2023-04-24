@@ -1,14 +1,5 @@
 from module_imports import *
 
-'''
-to do:
-    improve the README (TO DO )
-    create makefile for generic tasks (update all, update experts)
-    consider using OOP in some way (user? tweet? sentiment?)
-    add tweet id?
-    can we save the model locally and not rely on Hugging Face?
-'''
-
 def update():
     ''' This function should be run daily to enable the database to be updated. It takes no inputs and both reads and overwrites the current csv containing the data.
     '''
@@ -19,12 +10,12 @@ def update():
     # Work out how long to update for
     datetime_idx = old_tweet_data.columns.get_loc("datetime")
     last_time_updated = old_tweet_data.iloc[-1,datetime_idx]
-    date_now = str(datetime.datetime.now().date())
+    date_now = str(datetime.now().date())
 
     print(f'Date is now {date_now}. Updating last occurred {last_time_updated}.')
     print('Updating tweets...')
 
-    new_raw_tweet_data = snscrape(num_tweets=149,start_date=last_time_updated,end_date=None, hour_delta=8,min_gap=10,filename=f'data/raw_data/scraped_{last_time_updated[:10]}_until_{date_now}.csv',make_csv=True)
+    new_raw_tweet_data = snscrape(num_tweets=149,start_date=last_time_updated,end_date=None, hour_delta=8,min_gap=10,filename=f'../data/raw_data/scraped_{last_time_updated[:10]}_until_{date_now}.csv',make_csv=True)
 
     print('Scraping completed.')
 
@@ -78,7 +69,7 @@ def update():
     fully_combined.reset_index(drop=True,inplace=True)
     new_vol_master = daily_data(fully_combined, f'new_vol_master_{last_time_updated[:10]}.csv', start_date_str=None,symbol='BTC-USD', end_date_str=None, period='1d', interval='1d')
 
-    if datetime.datetime.now().weekday() == 0:
+    if datetime.now().weekday() == 0:
         fully_combined.to_csv("~/code/giadapi/crypto_2/data/backup_data/sentiment_per_tweet_until_{date_now}.csv")
         new_vol_master.to_csv("~/code/giadapi/crypto_2/data/backup_data/sentiment_per_day_until_{date_now}.csv")
 

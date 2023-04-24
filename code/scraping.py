@@ -1,4 +1,7 @@
-
+import snscrape.modules.twitter as sntwitter
+import pandas as pd
+from datetime import datetime, timedelta
+import csv
 
 def hour_rounder(t):
         '''
@@ -14,7 +17,7 @@ def timedeltas(start='2022-06-24 06:00:00',last="2022-07-01 06:00:00",hour_delta
 #     end = end.isoformat("_", "seconds")
 
     if last == None:
-        current = datetime.datetime.now()
+        current = datetime.now()
         current.isoformat()
         current = pd.Timestamp(current)
         current = current.tz_localize(None)
@@ -64,13 +67,15 @@ def snscrape(num_tweets=149,start_date='2023-03-05T06:00:00.000Z',end_date='2023
     '''
     start_list, end_list = timedeltas(start=start_date,last=end_date,hour_delta=hour_delta,min_gap=min_gap)
 
-    # Create file
-    csvFile = open(filename, "a", newline="", encoding='utf-8')
-    csvWriter = csv.writer(csvFile)
+    # Create file, create headers for the data you want to save, in this example, we only want save these columns in our dataset
 
-    #Create headers for the data you want to save, in this example, we only want save these columns in our dataset
-    csvWriter.writerow(['datetime', 'username', 'text'])
-    csvFile.close()
+    try:
+        with open(filename, "a", newline="", encoding='utf-8') as csvFile:
+            csvWriter = csv.writer(csvFile)
+            csvWriter.writerow(['datetime', 'username', 'text'])
+            csvFile.close()
+    except FileExistsError:
+        pass
 
     # Using TwitterSearchScraper to scrape data and append tweets to list
     for i in range(len(start_list)):

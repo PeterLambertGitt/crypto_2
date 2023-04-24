@@ -6,9 +6,7 @@ import snscrape.modules.twitter as sntwitter
 import numpy as np
 import pandas as pd
 from scipy.special import softmax
-import pandas as pd
-import datetime
-from datetime import timedelta
+from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
 import matplotlib

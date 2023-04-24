@@ -18,7 +18,7 @@ def remove_spam(data):
     return data2
 
 def preprocess(text):
-     '''
+    '''
     Removes usernames and web adresses.
     '''
     new_text = []
