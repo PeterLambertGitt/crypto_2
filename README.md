@@ -10,7 +10,7 @@
 ![Alt text](repo_pictures/crypto2.png)
 ## Time series analysis:
 #### The time series was generated using the previous price of Bitcoin, as well as other exogenous variables. The previous price of Bitcoin was not enough to provide a useful time series model, due to its chaotic and volatile nature. However, when combined with our data about Bitcoin sentiment, the time series model improved significantly. When provided with data about Bitcoin trading volume, the time series improved even more, resulting in a MAPE of 4.5%. The backtested graph which shows the true values VS the predicted values can be seen below.
-![Alt text](repo_pictures/crypto3.PNG)
+![Alt text](repo_pictures/crypto3.png)
 ## 
 ## Trading strategy:
 #### Combing the sentiment data we produced with a strategy proposed by Imperial College London (linked in the paper below *), our strategy made a profit, despite the fact that Bitcoin made a significant loss during the period we investigated. We considered this a huge success for our team.
