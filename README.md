@@ -1,6 +1,6 @@
 # cryptobot
 ## Motivation for project:
-#### Cryptocurrency markets are notoriously volatile, yet lucrative. Since the vast majority of cryptocurrencies are not based on any tangible assets, their value is strongly correlated to the way people feel about them. Therefore, finding a way to quantify this level of global feeling is an inherently powerful thing.
+#### Cryptocurrency markets are notoriously volatile, yet lucrative. Since the vast majority of cryptocurrencies are not based on any tangible assets, their value is strongly correlated to public opinion and confidence. We analysed tweets over a 3 year period and found a high correlation with bitcoin fluctuations over this time.
 ## Relationship between Bitcoin price and Twitter sentiment
 ![Alt text](repo_pictures/crypto1.png)
 ##### MA sentiment is the moving average of sentiment over 7 days. This was used to reduce the effect of noise on the results so a pattern could be more clearly seen.
